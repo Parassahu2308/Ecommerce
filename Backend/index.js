@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRouter = require("./routes/user");
 const app = express();
+app.use(express.json());
+const cors = require("cors");
+const authRouter = require("./routes/Auth");
+app.use(cors());
 
 dotenv.config();
 
@@ -15,9 +19,8 @@ mongoose
     console.log(err);
   });
 
-app.use(express.json());
-
-app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
+// app.use("/api/user", userRouter);
 
 app.listen(5000, () => {
   console.log("Server running at 5000!");
