@@ -9,6 +9,7 @@ const authRouter = require("./routes/Auth");
 const productRouter = require("./routes/Product");
 const cartRouter = require("./routes/Cart");
 const orderRouter = require("./routes/Order");
+const stripeRouter = require("./routes/Stripe");
 app.use(cors());
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/checkout", stripeRouter);
 
 app.listen(5000, () => {
   console.log("Server running at 5000!");
