@@ -20,7 +20,7 @@ mongoose
   });
 
 app.use("/api/auth", authRouter);
-// app.use("/api/user", userRouter);
+app.use("/api/user", userRouter);
 
 app.listen(5000, () => {
   console.log("Server running at 5000!");

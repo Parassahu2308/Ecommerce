@@ -47,7 +47,7 @@ module.exports.LoginUser = async function (req, res) {
 
     res.status(200).json({
       msg: "Login Successfully",
-      others,
+      ...others,
       accessToken,
     });
   } catch (err) {
