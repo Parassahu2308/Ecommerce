@@ -6,6 +6,9 @@ const app = express();
 app.use(express.json());
 const cors = require("cors");
 const authRouter = require("./routes/Auth");
+const productRouter = require("./routes/Product");
+const cartRouter = require("./routes/Cart");
+const orderRouter = require("./routes/Order");
 app.use(cors());
 
 dotenv.config();
@@ -21,6 +24,9 @@ mongoose
 
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+app.use("/api/product", productRouter);
+app.use("/api/cart", cartRouter);
+app.use("/api/order", orderRouter);
 
 app.listen(5000, () => {
   console.log("Server running at 5000!");

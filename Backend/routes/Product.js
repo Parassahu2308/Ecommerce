@@ -1,30 +1,27 @@
-// const productRouter = require("express").Router();
+const { VerfiyTokenAndAdmin } = require("../Helper");
+const {
+  CreateProduct,
+  GetProduct,
+  DeleteProduct,
+  UpdateProduct,
+  GetAllProducts,
+} = require("../controllers/Product");
 
-// const {
-//   VerfiyTokenAndAuthorization,
-//   VerfiyTokenAndAdmin,
-// } = require("../Helper");
-// const {
-//   UpdateUser,
-//   DeleteUser,
-//   GetUser,
-//   GetAllUser,
-//   GetUserStats,
-// } = require("../controllers/user");
+const productRouter = require("express").Router();
 
-// //Get user stats
-// userRouter.route("/stats", VerfiyTokenAndAdmin).get(GetUserStats);
+//Create Product
+productRouter.post("/", VerfiyTokenAndAdmin, CreateProduct);
 
-// //Update User
-// userRouter.route("/:id", VerfiyTokenAndAuthorization).put(UpdateUser);
+//Update Product
+productRouter.put("/:id", VerfiyTokenAndAdmin, UpdateProduct);
 
-// //Delete User
-// userRouter.route("/:id", VerfiyTokenAndAuthorization).delete(DeleteUser);
+//Delete Product
+productRouter.delete("/:id", VerfiyTokenAndAdmin, DeleteProduct);
 
-// //Get User
-// userRouter.route("/:id", VerfiyTokenAndAdmin).get(GetUser);
+//Get Product
+productRouter.get("/find/:id", GetProduct);
 
-// //Get All User
-// userRouter.route("/", VerfiyTokenAndAdmin).get(GetAllUser);
+//Get Product
+productRouter.get("/", GetAllProducts);
 
-// module.exports = userRouter;
+module.exports = productRouter;

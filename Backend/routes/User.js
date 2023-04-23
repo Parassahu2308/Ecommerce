@@ -22,7 +22,7 @@ userRouter.put("/:id", VerfiyTokenAndAuthorization, UpdateUser);
 userRouter.delete("/:id", VerfiyTokenAndAuthorization, DeleteUser);
 
 //Get User
-userRouter.get("/:id", VerfiyTokenAndAdmin, GetUser);
+userRouter.get("/find/:id", VerfiyTokenAndAdmin, GetUser);
 
 //Get All User
 userRouter.get("/", VerfiyTokenAndAdmin, GetAllUser);
