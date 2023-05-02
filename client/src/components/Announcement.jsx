@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 
 const Announcement = () => {
-  return <Container>Super Deal! Free Shipping on Orders over $40</Container>;
+  return <Container>Super Deal! Free Shipping on Orders over Rs.499</Container>;
 };
 
 export default Announcement;
